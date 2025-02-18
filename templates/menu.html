@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'Bootstrap.html' %}
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="menu-container">
+        <h2 style="font-size: 40px; text-align: center;">OUR MENU</h2>
+        <div class="menu-grid">
+            {% for item in menu_items %}
+            <div class="menu-item">
+                <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                <div class="menu-info">
+                    <p class="menu-description">{{ item.description }}</p>
+                    <p class="menu-price">${{ item.price }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

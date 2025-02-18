@@ -1,0 +1,277 @@
+/* Ensure no extra space and prevent scrollbars */
+html, body {
+    min-width: 980px;
+    min-height: 1820px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Remove horizontal scrollbar */
+    overflow-y: hidden; /* Remove vertical scrollbar */
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+/* Navbar Container */
+.navbar {
+    background-color: black !important;
+    padding: 10px 10px; /* Keep padding fixed */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center;
+}
+
+/* Prevent navbar expansion */
+.navbar.fixed {
+    height: auto;
+}
+
+/* Navbar logo size */
+.navbar-brand {
+    color: white !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px; /* Keep size fixed */
+    font-weight: bold;
+    letter-spacing: 1.8px;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: white !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px; /* Keep text size fixed */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 15px 20px;
+}
+.navbar-nav {
+    display: flex;
+    gap: 50px; /* Keep consistent spacing */
+    flex: 0 0 40%;
+    justify-content: flex-end;
+}
+
+/* Navbar hover effect */
+.navbar-nav .nav-link:hover {
+    color: goldenrod !important;
+}
+
+/* 🔹 Fix Carousel Image Size */
+.carousel {
+    margin-top: 0px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Ensure images fit the full screen */
+.carousel-item img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Adjust carousel caption (text area) */
+.carousel-caption {
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+    text-align: left;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 35px;
+    border-radius: 15px;
+    max-width: 60%;
+}
+
+/* Increase the main heading size */
+.carousel-caption h2 {
+    font-size: 6rem; /* Fixed large text */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Increase paragraph text size */
+.carousel-caption p {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/* Make the button larger */
+.carousel-caption .btn {
+    background-color: goldenrod;
+    border: none;
+    padding: 14px 32px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.carousel-caption .btn:hover {
+    background-color: #c28b00;
+}
+
+/* Footer Styling */
+footer {
+    background-color: black; 
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+}
+
+/* Footer Links */
+.footer {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between links and © 2025 */
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    color: goldenrod;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+
+.footer p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0 10px;
+    font-weight: normal;
+}
+
+
+/* Ensure menu container allows horizontal scrolling */
+.menu-container {
+    text-align: center;
+    padding: 50px 20px;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-container h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/* Menu Grid Layout - 3 images per row with horizontal scrolling */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Take full width */
+    padding: 30px;
+}
+
+/* Make menu items square */
+.menu-item {
+    position: relative;
+    width: 100%; /* Stretch to fit container */
+    max-width: 100%; /* Ensure reasonable image width */
+    height: auto; /* Ensure images remain square */
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image should fit square container */
+.menu-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*  /* Ensure image fits without distortion */
+}
+
+/* Info box overlay (hidden by default) */
+.menu-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Show info when hovering */
+.menu-item:hover .menu-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Description and Price */
+.menu-description {
+    font-size: 40px;
+    margin: 5px 0;
+}
+
+.menu-price {
+    font-size: 40px;
+    font-weight: bold;
+    color: goldenrod;
+}
+
+/* Ensure the scrollbar is visible */
+.menu-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+    background: goldenrod;
+    border-radius: 5px;
+}
+
+.menu-container::-webkit-scrollbar-track {
+    background: #222;
+}
+
+
+
+
