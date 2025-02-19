@@ -27,7 +27,7 @@ menu_items = [
     MenuItem("Chicken Wings", "Crispy fried chicken wings served with a side of dipping sauce.", 9.99, "chiken wings fry.jpg"),
     MenuItem("Lemongrass Pork Ribs", "Tender pork ribs marinated in lemongrass and grilled to perfection.", 14.99, "Fried lemongrass prork ribs.jpg"),
     MenuItem("Nigerian Chicken Stew", "Rich and spicy Nigerian-style chicken stew.", 13.99, "Nigerianchikenstew.jpg"),
-    MenuItem("Pork Chop", "Grilled pork chop glazed with a sweet and savory sauce.", 12.49, "popchop.jpg"),
+    MenuItem("Pork Chop", "Grilled pork chop glazed with a sweet and savory sauce.", 12.49, "popchop .jpg"),
     MenuItem("Grilled Steak", "Juicy grilled steak topped with fresh herbs.", 16.99, "steak.jpg"),
     MenuItem("Sticky Chicken Fry", "Sticky glazed chicken wings garnished with sesame seeds.", 10.99, "stickychickenfry.jpg"),
     MenuItem("Garlic Green Beans", "Crispy stir-fried green beans with garlic.", 8.99, "stir-fried garlic green beans.jpg"),
