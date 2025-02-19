@@ -15,7 +15,7 @@ html, body {
 /* Navbar Container */
 .navbar {
     background-color: black !important;
-    padding: 10px 10px; /* Keep padding fixed */
+    padding-right:130px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -24,6 +24,7 @@ html, body {
     display: flex;
     justify-content: space-between; /* Space between logo and nav links */
     align-items: center;
+    
 }
 
 /* Prevent navbar expansion */
@@ -44,11 +45,13 @@ html, body {
 .navbar-nav .nav-link {
     color: white !important;
     font-family: 'Poppins', sans-serif;
-    font-size: 40px; /* Keep text size fixed */
+    font-size: 25px; /* Keep text size fixed */
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 15px 20px;
+    padding-right: 50px; 
+    margin-left: 50px;
+    
 }
 .navbar-nav {
     display: flex;
@@ -216,6 +219,8 @@ footer {
     overflow: hidden;
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
+    position: relative;
+    overflow: visible;
 }
 
 /* Image should fit square container */
@@ -231,32 +236,97 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 25%;
+    height:25%;
     background: rgba(0, 0, 0, 0.7); /* Dark overlay */
     color: white;
     padding: 10px;
     opacity: 0;
     transform: translateY(100%);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80px;
+    margin: 5px 0;
+    
 }
 
 /* Show info when hovering */
 .menu-item:hover .menu-info {
     opacity: 1;
     transform: translateY(0);
+    min-height: 35%;
 }
-
+.menu-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
 /* Description and Price */
 .menu-description {
-    font-size: 40px;
-    margin: 5px 0;
+    font-size: 18px;
+    margin-bottom: 5px;
+
 }
 
 .menu-price {
-    font-size: 40px;
+    font-size: 22px;
     font-weight: bold;
     color: goldenrod;
+    margin-top: 5px;
+    display: block;
 }
+@media (max-width: 1024px) {
+    .menu-title {
+        font-size: 18px;
+    }
+
+    .menu-description {
+        font-size: 14px;
+    }
+
+    .menu-price {
+        font-size: 16px;
+    }
+}
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 16px; /* Reduce dish title size */
+    }
+
+    .menu-description {
+        font-size: 12px; /* Decrease description text */
+        line-height: 1.2; /* Reduce line spacing */
+    }
+
+    .menu-price {
+        font-size: 14px; /* Keep price visible and clear */
+    }
+
+    .menu-info {
+        padding: 5px; /* Reduce padding inside text area */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-title {
+        font-size: 14px; /* Even smaller for mobile */
+    }
+
+    .menu-description {
+        font-size: 11px;
+    }
+
+    .menu-price {
+        font-size: 12px;
+    }
+
+    .menu-info {
+        padding: 3px;
+    }
+}
+
 
 /* Ensure the scrollbar is visible */
 .menu-container::-webkit-scrollbar {
@@ -272,6 +342,424 @@ footer {
     background: #222;
 }
 
+/* 🔹 TOGO Page Styling */
+.togo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* 🔹 Left Side: Scrollable Menu Items */
+.togo-menu {
+    width: 40%; /* Set the menu section to 25% of the width */
+    height: 100vh; /* Ensure full height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 0px; /* Remove right padding */
+    margin-right: 0px; /* Remove extra margin */
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Ensure no space between items */
+}
+
+/* Style each item in vertical scroll */
+.togo-menu .menu-item {
+    width: 75%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Ensure images fit properly */
+.togo-menu .menu-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Crop image to fit within the square */
+    border-radius: 10px;
+    display: block;
+}
+
+/* 🔹 Right Side: Order Form */
+.order-form {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Center the order form elements */
+.order-form h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Box for order details */
+.order-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* 🔹 Align Dish Dropdown, Quantity Selector, and Add Button in One Row */
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Style for Dish Dropdown */
+.order-top select {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Quantity Controls */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quantity-control button {
+    background: goldenrod;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantity-control input {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* 🔹 ADD Button */
+.add-btn {
+    background: goldenrod;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #c28b00;
+}
+
+/* 🔹 Order Summary */
+.order-summary {
+    margin-top: 20px;
+    text-align: left;
+    border-top: 2px solid goldenrod;
+    padding-top: 10px;
+}
+
+.order-summary h3 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.order-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-summary li {
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Quantity Display */
+.order-quantity {
+    font-size: 16px;
+    margin: 0 10px;
+    color: goldenrod;
+}
+
+/* Remove Button */
+.remove-btn {
+    background: red;
+    color: white;
+    font-size: 14px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove-btn:hover {
+    background: darkred;}
+
+/* 🔹 Total Price */
+#total-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: goldenrod;
+    margin-top: 10px;
+}
+
+/* 🔹 Continue Button */
+.continue-btn {
+    background: goldenrod;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 15px;
+}
+
+.continue-btn:hover {
+    background: #c28b00;
+}
+
+/* 🔹 Scrollbar Styling */
+.togo-menu::-webkit-scrollbar {
+    width: 10px;
+}
+
+.togo-menu::-webkit-scrollbar-thumb {
+    background: goldenrod;
+    border-radius: 5px;
+}
+
+.togo-menu::-webkit-scrollbar-track {
+    background: #222;
+}
+
+/* Booking Container */
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto; /* Allow scrolling */
+    max-height: 100vh; /* Prevent it from getting stuck */
+    padding-bottom: 50px; /* Space for footer */
+}
 
 
+/* Booking Image */
+.booking-image img {
+    width: 100vw; /* Cover full viewport width */
+    height: 50vh; /* Make it take up 40% of viewport height */
+    object-fit: cover; /* Ensure image scales properly */
+    display: block;
+    
+}
 
+/* Booking Form */
+.booking-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 80px; /* Increase bottom margin to ensure button is visible */
+}
+
+
+/* Form Labels & Inputs */
+.booking-form label {
+    display: block;
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.booking-form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Booking Button */
+.book-btn {
+    background: goldenrod;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.book-btn:hover {
+    background: #c28b00;
+}
+
+/* Force Scrollbar for Small Screens */
+@media (max-width: 768px) {
+    .booking-container {
+        overflow-y: auto; /* Enable scrolling */
+    }
+
+    .booking-form {
+        width: 90%;
+    }
+
+    .booking-form input {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+/* ✅ Main Container (Enables Scrolling) */
+.customer-togo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto; /* Enables full page scrolling */
+    padding-bottom: 50px;
+}
+
+/* ✅ Booking Image (Limited to 25% Height) */
+.customer-togo-image img {
+    width: 100%; /* Full width */
+    height: 41vh; /* Sets height to 25% of viewport */
+    object-fit: cover; /* Ensures proper fitting */
+    display: block;
+    margin-bottom: 20px; /* Adds spacing */
+}
+
+/* ✅ Scrollable Content Wrapper */
+.customer-togo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 20px;
+    max-height: 600px; /* Allows content scrolling */
+    overflow-y: auto;
+}
+
+/* ✅ Order Summary Box */
+.order-summary-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.3);
+    max-height: 300px;
+    overflow-y: auto; /* Enables scrolling inside */
+    margin-bottom: 20px; /* Adds spacing */
+}
+
+/* ✅ Scrollable Order List */
+.order-summary-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    border-top: 2px solid goldenrod;
+    border-bottom: 2px solid goldenrod;
+    max-height: 200px;
+    overflow-y: auto; /* Makes order list scrollable */
+}
+
+/* ✅ Customer Form Box */
+.customer-form-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.3);
+    max-height: 350px;
+    overflow-y: auto; /* Enables scrolling inside */
+}
+
+/* ✅ Scroll Bar Styling */
+.order-summary-box::-webkit-scrollbar,
+.customer-form-box::-webkit-scrollbar,
+.customer-togo-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.order-summary-box::-webkit-scrollbar-thumb,
+.customer-form-box::-webkit-scrollbar-thumb,
+.customer-togo-container::-webkit-scrollbar-thumb {
+    background: goldenrod;
+    border-radius: 10px;
+}
+
+.order-summary-box::-webkit-scrollbar-track,
+.customer-form-box::-webkit-scrollbar-track,
+.customer-togo-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ✅ Success Message Styling */
+.success-message {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 128, 0, 0.2);
+    color: green;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .customer-togo-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .order-summary-box,
+    .customer-form-box {
+        width: 90%;
+        max-height: 250px;
+    }
+}

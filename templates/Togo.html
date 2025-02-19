@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'Bootstrap.html' %}
+    <title>TOGO Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="togo-container">
+        <!-- Left Side: Scrollable Menu -->
+        <div class="togo-menu">
+            <h2 style ="padding-left: 35%;">MENU</h2>
+            <div class="menu-list">
+                {% for item in menu_items %}
+                    <div class="menu-item" onclick="selectDish('{{ item.name }}', {{ item.price }})">
+                        <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                        <div class="menu-info">
+                            <p class="menu-title">{{ item.name }}</p>
+                            <p class="menu-description">{{ item.description }}</p>
+                            <p class="menu-price">${{ item.price }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Order Form -->
+        <div class="order-form">
+            <h2>Place Your Order</h2>
+            <div class="order-box">
+                <div class="order-top">
+                    <!-- Dish Selection -->
+                    <label for="dish">Dish:</label>
+                    <div class="custom-dropdown">
+                        <select id="dish">
+                            <option value="" data-price="0">Select a dish</option>
+                            {% for item in menu_items %}
+                                <option value="{{ item.name }}" data-price="{{ item.price }}">
+                                    ${{ item.price }} - {{ item.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Quantity Selection -->
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-control">
+                        <button id="decrease" disabled>-</button>
+                        <input type="number" id="quantity" value="1" min="1" readonly>
+                        <button id="increase">+</button>
+                    </div>
+
+                    <!-- Add Button -->
+                    <button class="add-btn" id="add-item">ADD</button>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <ul id="order-list"></ul>
+                </div>
+
+                <!-- Total Price -->
+                <label>Total Price:</label>
+                <p id="total-price">$0.00</p>
+
+                <button class="continue-btn" onclick="redirectToCustomerForm()">Continue</button>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+       
+    
+    {% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'Bootstrap.html' %}
+    <title>Book a Table</title>
+    
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <!-- Booking Section -->
+    <div class="booking-container">
+        <!-- Booking Image -->
+        <div class="booking-image">
+            <img src="{{ url_for('static', filename='images/booking1.jpg') }}" alt="Book a Table">
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form">
+            <h2>Reserve Your Table</h2>
+            <!-- Success Message (Initially Hidden) -->
+            
+
+            <form action="/submit_booking" method="POST">
+                <!-- Name -->
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <!-- Phone Number -->
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <!-- Date Selection -->
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <!-- Time Selection -->
+                <label for="time">Select Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <!-- Number of Guests -->
+                <label for="guests">Number of People:</label>
+                <input type="number" id="guests" name="guests" min="1" max="20" required>
+
+                <!-- Submit Button -->
+                <button id ="book-now-btn" type="submit" class="book-btn">Book Now</button>
+                <p id="processing-message" style="display: none; color: orange; font-size: 20px; margin-top: 15px;">
+                    ⏳ Processing...
+                </p>
+                <p id="success-message" style="display: none; color: green; font-size: 20px; margin-top: 15px;">
+                    ✅ Your table has been successfully booked!
+                </p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("book-now-btn").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            let processingMessage = document.getElementById("processing-message");
+            let successMessage = document.getElementById("success-message");
+    
+            // Show "Processing..." message
+            processingMessage.style.display = "block";
+    
+            // Wait for 1 second, then show success message & hide "Processing..."
+            setTimeout(function() {
+                processingMessage.style.display = "none"; // Hide "Processing..."
+                successMessage.style.display = "block"; // Show success message
+    
+                // Redirect to main menu after 2 seconds
+                setTimeout(function() {
+                    window.location.href = "/"; // Change URL to main menu
+                }, 2000);
+    
+            }, 1000); // Wait 1 second before showing success message
+        });
+    </script>
+    
+    
+
+    {% include 'footer.html' %}
+
+</body>
+</html>
